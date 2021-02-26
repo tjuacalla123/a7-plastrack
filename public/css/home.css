@@ -1,0 +1,47 @@
+.plastrack, h2 {
+	text-align: center;
+	color: black;
+}
+h2 {
+	font-size: 16px;
+	margin: 0;
+}
+
+h2 b {
+	font-size: 30px;
+}
+
+.jumbotron.log, .menu-options {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	border-radius: 30px;
+}
+
+.log {
+	height: 130px;
+	margin: 0;
+}
+
+.menu-options {
+	height: 50px;
+	margin: 10px 0px 0px 0px;
+}
+
+.jumbotron.log:hover {
+	background-color: black;
+}
+
+.menu-options:hover {
+	background: black;
+}
+
+.menu-options:hover h2, .jumbotron.log:hover h2 {
+	color: white;
+}
+
+a:active {
+	text-decoration: none;
+}

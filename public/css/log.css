@@ -1,0 +1,87 @@
+.plastic-list, .trash-add-delete {
+	margin: 0;
+	height: 450px;
+	width: 100%;
+}
+.jumbotron.plastic-list {
+	width: 40%;
+	padding: 0;
+	border-radius: 30px;
+}
+.trash-add-delete {
+	width: 60%;	
+	padding-left: 15px;
+	justify-content: flex-end;
+}
+.search-plastic {
+	justify-content: center;
+	padding: 10px 10px 10px 10px;
+	height: 20%;
+	width: 100%;
+}
+#trash, .search-bar {
+	width: 100%;
+}
+#trash {
+	height: 80%;
+}
+.search-bar {
+	height: 40%;
+}
+.search-p {
+	margin-top: 5px;
+	width: 50%;
+}
+.logpage {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.search-plastic, .trash-add-delete {
+	display: flex;
+	flex-direction: column;
+}
+.plastic-contents, .search-plastic {
+	align-items: center;
+}
+.plastic-contents {
+	padding: 30px 15px 30px 15px;
+	height: 80%;
+	border-radius: 0px 0px 30px 30px;
+}
+.single-plastic {
+	height: 90px;
+	width: 90px;
+	margin-bottom: 10px;
+	border-radius: 50%;
+	border: 2px solid black;	
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1;
+}
+.add-delete {
+	height: 100%;
+}
+.recycling-bin {
+	height: 60%;
+}
+.contents, .add-delete {
+	border-radius: 30px;
+}
+.contents {
+	height: 30%;
+	margin-bottom: 5px;
+}
+a {
+	height: 10%;
+	margin-bottom: 5px;
+}
+.tip, .tip2 {
+	text-align: center;
+}
+.plastic-contents, .contents {
+	overflow-x: hidden;
+	overflow-y: scroll;
+}

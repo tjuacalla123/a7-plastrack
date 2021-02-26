@@ -1,0 +1,31 @@
+/*containers, jumbotron, well styling*/
+.well {
+  height: 200px;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.well2 {
+  height: auto;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.tip-titles {
+  margin: 0px 0px 10px 0px;
+  line-height: 30px;
+  border-radius: 30px;
+}
+
+.descriptions {
+  margin: 0px 0px 10px 0px;
+}
+
+#desc {
+  display: none;
+}
+
+/*Hover styling*/
+#title:hover  + #desc {
+  display: block;
+}

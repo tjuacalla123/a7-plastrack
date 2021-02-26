@@ -1,0 +1,72 @@
+{
+	"navLink" : [
+		{
+		"title": "Homepage",
+		"url" : "/homepage"	
+		},
+		{
+		"title": "Log Plastic",
+		"url" : "/logpage"	
+		},
+		{
+		"title": "Log History",
+		"url" : "/history"	
+		},
+		{
+		"title": "Share",
+		"url" : "/share"	
+		},
+		{
+		"title": "Settings",
+		"url" : "/settings"	
+		},
+		{
+		"title": "Help",
+		"url" : "/help"	
+		}
+	],
+	"navIcon" : [
+		{
+		"src" : "assets/user_icon_s.png",
+		"link-title": "settings",
+		"url" : "/settings"
+		},
+		{
+		"src" : "assets/home_S.png",
+		"link-title": "homepage",
+		"url" : "/homepage"
+		}
+	],
+	"moduleTitle": "Everyday Steps You Can Take to Reduce Your Plastic Usage",
+	"moduleTitle2": "The Bigger Picture: Why Sustainability Matters",
+	"tips": [
+		{
+			"title": "Coffee or boba fiend? Bring a reusable cup!",
+			"desc": "Or better yet, bring your own. If you're a tea person, opt for loose-leaf rather than teabags to minimize  waste."
+		},
+		{
+			"title": "Forget your reusable cup? Ask for a paper one!",
+			"desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+		},
+		{
+			"title": "Going shopping? Bring a cloth bag!",
+			"desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+		},
+		{
+			"title": "Buy in bulk at the grocery store",
+			"desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+		}
+		],
+		"info": [
+		{
+			"title": "How Much Plastic Actually Gets Recycled?",
+			"desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+		},
+		{
+			"title": "Your Role in Helping Alleviate the Global Waste Crisis",
+			"desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+		}
+		],
+		"plastrackTitle" : "How Plastrack Can Help",
+		"plastrackDesc" : "We believe that 100% of people achieving imperfect sustainability can do more than just a few people being perfect. Plastrack can help you sustain measured steps towards your goal of reducing your dependence on single-use plastics."
+}

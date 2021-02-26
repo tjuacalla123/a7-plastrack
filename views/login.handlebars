@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title> Login </title>
+		<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+		<link href = "css/bootstrap.min.css" rel = "stylesheet">
+		<link href = "css/bootstrap-theme.min.css" rel = "stylesheet">
+		<link href = "css/login.css" rel = "stylesheet">
+
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+     	https://firebase.google.com/docs/web/setup#available-libraries -->
+		<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+
+		<script src="js/loginfirebase.js"></script>
+		</head>
+
+		<body>
+
+			<h1> Plastrack Login </h1>
+			<div id="formContainer">
+				<div id = "header"> </div>
+
+				<input type="email" placeholder="email" id="email" />
+				<input type="password" placeholder="password" id="password" />
+
+				<div id="buttons">
+				<button onclick="signUp()" id="signUp"> Sign Up </button>
+				<button onclick="signIn()" id="signIn"> Sign In </button>
+				<!-- <button onclick="signOut()" id="signOut"> Sign Out </button> -->
+				</div>
+			</div>
+		</body>
+<html>
+

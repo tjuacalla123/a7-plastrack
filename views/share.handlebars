@@ -1,0 +1,148 @@
+<html>
+
+<head>
+	<title>Share Progress</title>
+	<meta charset = "utf-8">
+	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+	<link href = "css/bootstrap.min.css" rel = "stylesheet">
+	<link href = "css/bootstrap-theme.min.css" rel = "stylesheet">
+	<link href = "css/sharensetting.css" rel = "stylesheet">
+	<link href = "css/navbar.css" rel = "stylesheet">
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/sharepage.js"></script>
+
+</head>
+
+<body>
+		<div class="col-xs-12" id=space>
+			<div class="jumbotron navigation-bar">
+				<div class="dropdown">
+					<img id = side-button src="assets/hamburger.png" style="max-width:100%; max-height:100%;"></img>
+					<div class="dropdown-content">
+				{{#each navLink}}
+				<a class="links-hidden" href="{{url}}"><p class="dropdown-font"><p>{{title}}</p></a>
+				{{/each}}
+				</div>
+			</div>
+			
+				{{#each navIcon}}
+				<div class="home-btn">
+					<button class="settings">
+						<a href="{{url}}"><img src="{{src}}" style="max-width:75%; max-height:75%;"></img></a>
+					</button>
+				</div>
+				{{/each}}
+			</div>
+			
+		</div>
+	<div class="container">
+		<div class ="row">
+			<div class = "col-xs-10 col-xs-offset-1 title">
+					<h1 class = "plastrack" ><i>{{shareTitle}}</i></h1>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1 share">
+				<div class="send-progress">
+					{{#each sendFriend}}
+					<div class="row-share">
+							<div class="well text">
+								<p class="share-text">{{title}}</p>
+							</div>
+							<div class="choose-box">
+								<select name="{{value}}" id=choose-boxes>
+									{{#each options}}
+									<option value="{{value}}">{{val}}</option>
+									{{/each}}
+								</select>
+							</div>
+						</div>
+						{{/each}}
+					<!--
+						<div class="row-share">
+							<div class="well text">
+								<p class="share-text">Send progress to:</p>
+							</div>
+							<div class="choose-box">
+								<select name="friend" id=choose-boxes>
+									<option value="friend">Tim</option>
+									<option value="friend">Jane</option>
+									<option value="friend">Anand</option>
+								</select>
+							</div>
+						</div>
+						<div class="row-share">
+							<div class="well text">
+								<p class="share-text">For month:</p>
+							</div>
+							<div class="choose-box">
+								<select name="month" id=choose-boxes>
+									<option value="month">October</option>
+									<option value="month">November</option>
+								</select>
+							</div>
+						</div>
+						<div class="row-share">
+							<div class="well text">
+								<p class="share-text">And year:</p>
+							</div>
+							<div class="choose-box">
+								<select name="year" id=choose-boxes>
+									<option value="year">2020</option>
+									<option value="yearr">2021</option>
+								</select>
+							</div>
+						</div> -->
+				</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-4 col-xs-offset-4 submit">
+					<input type="submit" value="Send" id ="send-btn">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-10 col-xs-offset-1">
+							<hr></hr>
+				</div>
+			</div>
+			
+			<div class ="row">
+				<div class = "col-xs-10 col-xs-offset-1 title">
+						<h1 class = "plastrack" ><i>{{viewTitle}}</i></h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-10 col-xs-offset-1 share">
+					<div class="view-progress">
+
+							<div class="row-share">
+								<div class="well text">
+									<p class="share-text">{{viewSubtitle}}</p>
+								</div>
+								<div class="choose-box">
+									<select name="{{viewValue}}" id=choose-boxes>
+										{{#each viewOptions}}
+										<option value="friend">{{val}}</option>
+										{{/each}}
+									</select>
+								</div>
+							</div> 
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-4 col-xs-offset-4 submit">
+					<input type="submit" value="View" id = "send-btn2">
+				</div>
+			</div>
+	</div>
+	
+
+</body>
+
+</html>

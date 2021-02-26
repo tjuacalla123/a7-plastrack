@@ -1,0 +1,49 @@
+{
+	"pageTitle" : "Help",
+	"navLink" : [
+		{
+		"title": "Homepage",
+		"url" : "/homepage"	
+		},
+		{
+		"title": "Log Plastic",
+		"url" : "/logpage"	
+		},
+		{
+		"title": "Log History",
+		"url" : "/history"	
+		},
+		{
+		"title": "Share",
+		"url" : "/share"	
+		},
+		{
+		"title": "Sustainability Tips",
+		"url" : "/tips"	
+		},
+		{
+		"title": "Settings",
+		"url" : "/settings"	
+		}
+	],
+	"navIcon" : [
+		{
+		"src" : "assets/user_icon_s.png",
+		"url" : "/settings"
+		},
+		{
+		"src" : "assets/home_S.png",
+		"url" : "/homepage"
+		}
+	],
+	"help": [
+		{
+			"title": "How to use Plastrack",
+			"desc":  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+		},
+		{
+			"title": "Why Plastrack",
+			"desc":  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+		}
+	]
+}

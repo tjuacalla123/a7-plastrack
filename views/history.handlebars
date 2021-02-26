@@ -1,0 +1,129 @@
+<html>
+
+<head>
+	<title>{{title}}</title>
+	<meta charset = "utf-8">
+	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+	<link href = "css/bootstrap.min.css" rel = "stylesheet">
+	<link href = "css/bootstrap-theme.min.css" rel = "stylesheet">
+	<link href = "css/loghistory.css" rel = "stylesheet">
+	<link href = "css/navbar.css" rel = "stylesheet">
+
+</head>
+
+<body>
+	<div class="col-xs-12" id=space>
+		<div class="jumbotron navigation-bar">
+			<div class="dropdown">
+				<img id = side-button src="assets/hamburger.png" style="max-width:100%; max-height:100%;"></img>
+				<div class="dropdown-content">
+					{{#each navLink}}
+				<a class="links-hidden" href="{{url}}"><p class="dropdown-font"><p>{{title}}</p></a>
+				{{/each}}
+				</div>
+			</div>
+			
+				{{#each navIcon}}
+				<div class="home-btn">
+					<button class="settings">
+						<a href="{{url}}"><img src="{{src}}" style="max-width:75%; max-height:75%;"></img></a>
+					</button>
+				</div>
+				{{/each}}
+		</div>
+	</div>
+	
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="all-buttons">
+  			<button class="stats-button" id=today><p>Today</p></button>
+  			<button class="stats-button" id=week> <p>Weekly</p></button>
+  			<button class="stats-button"id=month><p>Monthly</p></button>
+  			<button class="stats-button"id=year><p>Yearly</p></button>
+			</div> 
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-xs-12">
+					<hr></hr>
+		</div>
+	</div>
+	
+		<div class ="row">
+			<div class = "col-xs-10 col-xs-offset-1 title">
+					<div class ="well date-stats">
+						<i>Month,Day,Year, (week= last 7 days (not clickable))</i>
+					</div>
+			</div>
+		</div>
+	
+	<div class="row">
+		<div class="col-xs-6 col-xs-offset-3 num-stats" id = total>
+			<div class="well plastic-num">
+				20
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-xs-6 col-xs-offset-3 num-stats" id = total-desc>
+			<div class="well plastic-num1">
+				Total Plastics
+			</div>
+		</div>
+	</div>
+	
+	<div class="row general-stats">
+		<div class="col-xs-3 num-stats">
+			<div class="well plastic-num" id = small>
+				50
+			</div>
+		</div>
+		<div class="col-xs-3 num-stats" id = medium>
+			<div class="well plastic-num">
+				5
+			</div>
+		</div>
+		<div class="col-xs-3 num-stats" id = large>
+			<div class="well plastic-num">
+				25
+			</div>
+		</div>
+	</div>
+	
+	<div class="row general-stats">
+		<div class="col-xs-3 num-stats">
+			<div class="well plastic-num1" id = total>
+				small
+			</div>
+		</div>
+		<div class="col-xs-3 num-stats" id = small>
+			<div class="well plastic-num1">
+				medium
+			</div>
+		</div>
+		<div class="col-xs-3 num-stats" id = medium>
+			<div class="well plastic-num1">
+				large
+			</div>
+		</div>
+	</div>
+	
+	<!--Overlapping jumbortrons for graphs/charts, swipe to change graph-->
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="graph-box">
+				Graph here
+			</div>
+		</div>
+	</div>
+</div>
+
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+		<script src="js/history.js"></script>
+</body>
+
+</html>

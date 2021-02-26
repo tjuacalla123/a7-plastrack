@@ -1,0 +1,72 @@
+{
+	"pageTitle": "Settings",
+	"navLink" : [
+		{
+		"title": "Homepage",
+		"url" : "/homepage"	
+		},
+		{
+		"title": "Log Plastic",
+		"url" : "/logpage"	
+		},
+		{
+		"title": "Log History",
+		"url" : "/history"	
+		},
+		{
+		"title": "Share",
+		"url" : "/share"	
+		},
+		{
+		"title": "Sustainability Tips",
+		"url" : "/tips"	
+		},
+		{
+		"title": "Help",
+		"url" : "/help"	
+		}
+	],
+	"navIcon" : [
+		{
+		"src" : "assets/user_icon_s.png",
+		"url" : "/settings"
+		},
+		{
+		"src" : "assets/home_S.png",
+		"url" : "/homepage"
+		}
+	],
+	"dropdown": [
+		{
+			"title": "Setting 1",
+			"option": [
+				{
+					"optionName": "Setting 1 option 1"
+				},
+				{
+					"optionName": "Setting 1 option 2"
+				}
+			]	
+		},
+		{
+			"title": "Setting 2",
+			"option": [
+				{
+					"optionName": "Setting 2 option 1"
+				},
+				{
+					"optionName": "Setting 2 option 2"
+				}
+			]		
+		}
+	],
+	"slider": [
+		{
+			"title": "Sound"
+		},
+		{
+			"title": "Dark mode"
+		}
+	],
+	"shareBtnTitle": "Sync your Facebook account"
+}
