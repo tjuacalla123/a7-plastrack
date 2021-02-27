@@ -39,21 +39,22 @@
 		</div>
 	</div>
 
-
-	<div class="row">
+		<div class="row"> 		
 		{{#each help}}
 		<div class="col-xs-10 col-xs-offset-1 col1">
+			<div class="section">
 			<div class="jumbotron help-titles" id = title>
 				{{title}}
 			</div>
 			<div class="well descriptions" id = desc>
 				{{desc}}
-			</div>
+			</div></div>
 		</div>	
 		{{/each}}
 	</div>
-	
+
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/help.js"></script>
 </body>
 </html>

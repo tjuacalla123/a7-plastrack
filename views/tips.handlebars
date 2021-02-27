@@ -41,13 +41,12 @@
 		</div>
 	</div>
 
-
 	<div class="row">
 		<div class="col-xs-10 col-xs-offset-1 col1">
 			<div class="jumbotron tip-titles" id = title>
 				Why should we reduce our plastic waste?
 			</div>
-			<div class="well2 descriptions">
+			<div class="well2 descriptions" >
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
 				sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 				Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
@@ -55,14 +54,18 @@
 				reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 				
 			</div>
+
+
 			{{#each tips}}
+			<div class="section">
 			<div class="jumbotron tip-titles" id = title>
 				{{title}} 
 			</div>
 			<div class="well descriptions" id = desc>
 				{{desc}}
-			</div>
+			</div></div>
 			{{/each}}
+
 				<div class ="row">
 		<div class = "col-xs-10 col-xs-offset-1 title">
 				<h2 class = "plastrack" >{{moduleTitle2}}</h2>
@@ -71,23 +74,26 @@
 			<div class="jumbotron tip-titles" id = title>
 				{{plastrackTitle}}
 			</div>
-			<div class="well descriptions">
+			<div class="well2 descriptions">
 				{{plastrackDesc}}
 
 			</div>
 		{{#each info}}
+		<div class="section">
 			<div class="jumbotron tip-titles" id = title>
 				{{title}}
 			</div>
 			<div class="well descriptions" id = desc>
 				{{desc}}
-			</div>
+			</div></div>
 			{{/each}}
 
 		</div>	
-	</div>
+	</div> 
 	
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/tips.js"></script>
+
 </body>
 </html>
