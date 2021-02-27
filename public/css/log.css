@@ -73,9 +73,7 @@
 p {
 	margin: 0;
 }
-.add-delete {
-	height: 100%;
-}
+
 .recycling-bin {
 	height: 60%;
 }
@@ -87,7 +85,6 @@ p {
 	margin-bottom: 5px;
 }
 .add-delete, a{
-	height: 5%;
 	margin: 0;
 }
 .tip, .tip2 {
@@ -102,4 +99,8 @@ p {
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 10px;
+}
+#total-plastic {
+	text-align: center;
+	margin: 10px 0px 10px 0px;
 }

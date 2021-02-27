@@ -3,6 +3,7 @@ $(document).ready(function(){
   
   $("#create-plastic").click(function(){
     addPlastics();
+    
   })
   
   $(".add-pic").click(function(){
@@ -49,6 +50,7 @@ function addPlastics() {
       deserializedPlastic.push(plastic);
       sessionStorage.setItem("plastic-types", JSON.stringify(deserializedPlastic));
     }  
+    window.location.replace("/logpage");
   }
   return;
 }

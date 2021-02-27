@@ -4,10 +4,21 @@ var smallPlastics = 0;
 var mediumPlastics = 0;
 var largePlastics = 0;
 $(document).ready(function(){
-  $(".divider").on('click',function(){
-    alert("hey!");
+  
+  // removes a log group
+  $(document).on("click", ".divider", function() {
+    var names = $(this).find(".p-text").attr('id');
+    var count = +$(this).find(".p-num").text();
+    $(this).remove();
+    var allCounts = JSON.parse(sessionStorage.getItem("countItems"));
+    totalPlastics -= allCounts[names];
+    
+    $(".totals").find("#total-plastic").html(totalPlastics + " total plastics logged");
+    delete allCounts[names];
+    sessionStorage.setItem("countItems", JSON.stringify(allCounts));
   });
   
+  // drag and drop
   $(function() { 
       var countItems = {};
       sessionStorage.setItem("countItems", JSON.stringify(countItems));
@@ -31,6 +42,9 @@ $(document).ready(function(){
           drop: function(event, ui) {
               var draggable = ui.draggable;
               var tempCount = JSON.parse(sessionStorage.getItem('countItems'))
+              if (tempCount == null) {
+                tempCount = {};
+              }
               var id = draggable.attr("id");
               if (id in tempCount) {
                 tempCount[id] += 1;
