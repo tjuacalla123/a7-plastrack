@@ -18,6 +18,22 @@ $(document).ready(function(){
     });
   })
   
+  $(document).on("click", ".divider", function() {
+    alert("you won");
+  });
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   // add all the plasticTypes that the user created 
   var nameofPlastic;
@@ -25,8 +41,10 @@ $(document).ready(function(){
   if (plasticTypes != null) {
     for (var i = 0; i < Object.keys(plasticTypes).length; i++) {
       nameofPlastic = plasticTypes[i]["name"].replace(/\s/g , "-");
-      $(".plastic-contents").append("<div class='single-plastic ui-draggable ui-draggable-handle' id=" + 
+      $(".plastic-contents").append("<div class='single-plastic' id=" + 
         nameofPlastic + ">" + plasticTypes[i]["icon"] +"</div>");
+        $("#"+nameofPlastic+".single-plastic").append("<p id=" + 
+          nameofPlastic + ">" + plasticTypes[i]["name"] +"</p>");
     }
   }
 });

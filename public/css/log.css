@@ -11,7 +11,7 @@
 .trash-add-delete {
 	width: 60%;	
 	padding-left: 15px;
-	justify-content: flex-end;
+	justify-content: flex-start;
 }
 .search-plastic {
 	justify-content: center;
@@ -36,6 +36,7 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
+	margin-bottom: 20px;
 }
 .search-plastic, .trash-add-delete {
 	display: flex;
@@ -44,22 +45,33 @@
 .plastic-contents, .search-plastic {
 	align-items: center;
 }
+.plastic-contents, .single-plastic {
+	display: flex;
+	flex-direction: column;
+}
 .plastic-contents {
 	padding: 30px 15px 30px 15px;
 	height: 80%;
 	border-radius: 0px 0px 30px 30px;
 }
 .single-plastic {
-	height: 90px;
-	width: 90px;
+	height: 70px;
+	width: 70px;
 	margin-bottom: 10px;
 	border-radius: 50%;
 	border: 2px solid black;	
 	text-align: center;
-	display: flex;
 	align-items: center;
 	justify-content: center;
 	z-index: 1;
+	flex-shrink: 0;
+	font-size: 7px;
+}
+.single-plastic i {
+	font-size: 20px;
+}
+p {
+	margin: 0;
 }
 .add-delete {
 	height: 100%;
@@ -74,9 +86,9 @@
 	height: 30%;
 	margin-bottom: 5px;
 }
-a {
-	height: 10%;
-	margin-bottom: 5px;
+.add-delete, a{
+	height: 5%;
+	margin: 0;
 }
 .tip, .tip2 {
 	text-align: center;
@@ -84,4 +96,10 @@ a {
 .plastic-contents, .contents {
 	overflow-x: hidden;
 	overflow-y: scroll;
+}
+
+.divider {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
 }
