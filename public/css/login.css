@@ -74,7 +74,7 @@ font-family: 'Reem Kufi', sans-serif;
 }
 
 #signIn{
-	background-color:#396B43;
+	background-color:#314882;
 	color: white;
 	font-weight: bold;
 	border: none;
@@ -85,7 +85,7 @@ font-family: 'Reem Kufi', sans-serif;
 	text-decoration: none;
 	box-shadow: 3px 2px 1px #DFD32B;
 	display: inline-block;
-	font-size: 13px;
+	font-size: 15px;
 }
 
 #signIn2{
