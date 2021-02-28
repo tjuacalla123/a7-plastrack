@@ -15,7 +15,6 @@
 
 	const auth = firebase.auth();
 	
-	
 	function signUp(){
 		
 		var email = document.getElementById("email");
@@ -49,6 +48,18 @@
 	}
 	
 	
+	function fbsignin() {
+	var provider = new firebase.auth.FacebookAuthProvider();
+	firebase.auth().signInWithPopup(provider).then(function(result){
+		var token = result.credential.accessToken;
+		//document.querySelector().style.display="block";
+		console.log(user);
+		var user = result.user;
+		console.log(user.email);
+	}).catch(function(error){
+		alert(error.message);
+});
+}
 	
 	auth.onAuthStateChanged(function(user){
 		
@@ -70,5 +81,23 @@
 		}
 		
 	});
+/*
+
+const signInWithFacebookBtn = document.getElementById('signInWithFacebook');
+
+function signInWithFacebook () {
+  var facebookProvider = new firebase.auth.FacebookAuthProvider();
+  //Or auth.signInWithRedirect(facebookProvider)
+  auth.signInWithPopup(facebookProvider)
+  .then(function(result){
+    console.log('Signed in successfully !');
+  })
+  .catch(function(error){
+		alert(error.message);
+  });
+}
+
+signInWithFacebookBtn.addEventListener('click', signInWithFacebook);
+*/
 	
 

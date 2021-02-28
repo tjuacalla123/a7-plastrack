@@ -50,15 +50,16 @@
 		
 		if(user){
 			var email = user.email;
+			//alert("Welcome user " + email);
+			$( "div.demo-stuff" ).html(function() {
+		  	return "Welcome "  + email + "</p>";
+			});
 			document.getElementById("sign-in-container").style.visibility = "hidden";
 			 document.getElementById('username').innerHTML = email;
 			document.getElementById("sign-out-container").style.visibility = "visible";
-
 		} else{
 			document.getElementById("sign-out-container").style.visibility = "hidden";
 			document.getElementById("sign-in-container").style.visibility = "visible";
 		}
 		
 	});
-	
-

@@ -79,6 +79,19 @@ h1 {
 	font-size: 13px;
 }
 
+#signIn2{
+	background-color:#3b5998;
+	color: white;
+	font-weight: bold;
+	border: none;
+	width: 50%;
+	padding: 15px 15px;
+	border-radius: 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 13px;
+}
 
 #signOut{
 	background-color: #333;
