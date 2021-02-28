@@ -32,6 +32,6 @@ $(document).ready(function() {
   
   $(".large").html(totalLarge);
   $(".medium").html(totalMedium);
-  $(".small").html(totalSmall);
+  $(".smalls").html(totalSmall);
   $(".total-logged").html(totalCount);
 })
