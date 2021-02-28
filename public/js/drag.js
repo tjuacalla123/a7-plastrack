@@ -5,7 +5,7 @@ var mediumPlastics = 0;
 var largePlastics = 0;
 $(document).ready(function(){
   
-  // removes a log group
+  // removes a log group, on() is for elements that are appended after page loads.
   $(document).on("click", ".divider", function() {
     var names = $(this).find(".p-text").attr('id');
     var count = +$(this).find(".p-num").text();
@@ -46,13 +46,14 @@ $(document).ready(function(){
                 tempCount = {};
               }
               var id = draggable.attr("id");
+              var name =  draggable.find("p")[0].innerHTML;
               if (id in tempCount) {
                 tempCount[id] += 1;
               }
               else {
                 tempCount[id] = 1;
               }
-              var name = id.replace(/-/g, ' ');
+              
               sessionStorage.setItem("countItems", JSON.stringify(tempCount));    
               $(this).addClass('ui-state-highlight').find('p').html(name + ' has been added to the bin!');
               
