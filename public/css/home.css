@@ -1,21 +1,39 @@
-.plastrack, h2 {
+   body {font-family: 'Manjari', sans-serif;}
+
+ .container {
+ 	margin-top: 16%;
+ }
+.plastrack {
+font-family: 'Reem Kufi', sans-serif;
+	font-size: 75px;
+	color: #314882;
+	margin: 100px auto;
+	padding: 10px;
 	text-align: center;
-	color: black;
+	text-shadow: 3px 2px 1px #DFD32B;
 }
+
 h2 {
+	color: black;
+	font-family: 'Manjari', sans-serif;
+	text-align: center;
 	font-size: 16px;
 	margin: 0;
 }
 
 h2 b {
+	font-family: 'Manjari', sans-serif;
+	color: white;
 	font-size: 30px;
 }
 
 h1 {
-	line-height:15px;
+	font-family: 'Reem Kufi', sans-serif;
+    font-size: 65px;
 }
 
 .jumbotron.log, .menu-options {
+	background-color: #314882;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -28,7 +46,9 @@ h1 {
 	height: 130px;
 	margin: 0;
 }
-
+.log:hover{
+	box-shadow: 5px 5px 2px #DFD32B;
+}
 .menu-options {
 	height: 50px;
 	margin: 10px 0px 0px 0px;
@@ -36,10 +56,13 @@ h1 {
 
 .jumbotron.log:hover {
 	background-color: black;
+	box-shadow: 3px 2px 1px #DFD32B;
 }
 
 .menu-options:hover {
 	background: black;
+	box-shadow: 5px 5px 2px #DFD32B;
+	border-radius: 0px;
 }
 
 .menu-options:hover h2, .jumbotron.log:hover h2 {
@@ -47,5 +70,9 @@ h1 {
 }
 
 a:active {
+	text-decoration: none;
+}
+
+a:hover{
 	text-decoration: none;
 }
