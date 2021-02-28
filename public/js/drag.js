@@ -61,11 +61,17 @@ $(document).ready(function(){
                 $("#loggedTemp").append("<div class='divider' id="+id+"></div>");
                 $("#"+id+".divider").append("<div class='p-text' id="+id+">"+name+"</div>");
                 $("#"+id+".divider").append("<div class='p-num' id="+id+">"+tempCount[id]+"</div>");
+                var plasticData = draggable.data("plasticObject");
+                plasticData["count"] = 1;
+
               }
               else {
                 $("#"+id+".p-num").html(tempCount[id]);
+                var plasticData = $("#"+id+".divider").data("plasticObject");
+                plasticData["count"] += 1;
+                
               }
-  
+              $("#"+id+".divider").data("plasticObject", plasticData);
               totalPlastics++;
               $(".totals").find("#total-plastic").html(totalPlastics + " total plastics logged");
           },

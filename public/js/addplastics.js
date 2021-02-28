@@ -18,11 +18,11 @@ $(document).ready(function(){
   
 
   // default plastic types, add here for more default plastic types
-  if (sessionStorage.getItem("plastic-types") == null || JSON.parse(sessionStorage.getItem("plastic-types")).length == []) {
-    var defaultPlastics = ["<i class='bi bi-cup'></i>", "<i class='bi bi-bag'></i>", 
-    "<i class='bi bi-cup-straw'></i>", "<i class='bi bi-cup-fill'></i>"];
-    var defaultNames = ["Plastic Cup", "Plastic Bag", "Soda cup", "Coffee"];
-    var defaultSizes = "medium";
+  var defaultPlastics = ["<i class='bi bi-cup'></i>", "<i class='bi bi-bag'></i>", 
+  "<i class='bi bi-cup-straw'></i>", "<i class='bi bi-cup-fill'></i>"];
+  var defaultNames = ["Plastic Cup", "Plastic Bag", "Soda cup", "Coffee"];
+  var defaultSizes = "medium";
+  if (sessionStorage.getItem("plastic-types") == null || JSON.parse(sessionStorage.getItem("plastic-types")).length < defaultNames.length) {
     var defaultList = [];
     for (var i = 0; i < 4; i++) {
       var plastic = new Plastic(defaultNames[i], defaultSizes, defaultPlastics[i]);

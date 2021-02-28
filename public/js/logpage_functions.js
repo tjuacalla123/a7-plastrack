@@ -4,12 +4,20 @@ $(document).ready(function(){
   // go to additem page
   $("#additem").click(function() {
     window.location.replace("/additem");
-  })
+  });
   
   // submit and move move data to log done
   $(".recycling-bin").click(function() {
-    sessionStorage.setItem("logCount", sessionStorage.getItem("countItems"));
     sessionStorage.removeItem("countItems");
+    var logCount = [];
+    $(".divider").each(function(){
+      var plastic = $(this).data("plasticObject");
+      if (plastic != "undefined") {
+        plastic["date"] = moment().format('YYYY MM DD');
+        logCount.push(plastic);
+      }  
+    });
+    sessionStorage.setItem("logged", JSON.stringify(logCount));
     window.location.replace("/logdone");
   })
   
@@ -29,7 +37,7 @@ $(document).ready(function(){
     });
   })
   
-  // toggle delete button
+  // toggle delete button, disables dragging function
   $('#deleteitem').click( function() {
     console.log("yo!");
     $(".single-plastic").toggleClass("deleteable");
@@ -48,7 +56,6 @@ $(document).ready(function(){
     var plasticTypes = JSON.parse(sessionStorage.getItem("plastic-types"));
     console.log(plasticTypes[1]);
     for (i in plasticTypes) {
-      
       if (equalPlastics(plastic, plasticTypes[i])) {
         delete plasticTypes[i];
       }
