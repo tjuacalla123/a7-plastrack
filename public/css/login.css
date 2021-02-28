@@ -1,18 +1,26 @@
-body {
+
+ body {
+   	font-family: 'Manjari', sans-serif;
+   	font-size: 14px;
 	background-color: white;
-}
+   }
+
 
 h1 {
-	background-color: #efefef;
+font-family: 'Reem Kufi', sans-serif;
+	font-size: 75px;
+	background-color: #f8f8f8;
+	color: #314882;
 	margin: 100px auto;
 	padding: 10px;
 	text-align: center;
-	color: black;
+	text-shadow: 3px 2px 1px #DFD32B;
+	box-shadow: 0 12px 16px 0 rgb(0,0,0,0.1), 0 17px 30px 0 rgba(0,0,0,0.1);
 }
 
 #formContainer{
 	background-color: white;
-	box-shadow: 0 12px 16px 0 rgb(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	box-shadow: 0 12px 16px 0 rgb(0,0,0,0.1), 0 17px 50px 0 rgba(0,0,0,0.1);
 	border-radius: 30px;
 	width: 85%;
 	height: 45%;
@@ -50,7 +58,7 @@ h1 {
 }
 
 #signUp{
-	background-color: #314882;
+	background-color: #396B43;
 	color: white;
 	border: none;
 	font-weight: bold;
@@ -75,12 +83,13 @@ h1 {
 	border-radius: 10px;
 	text-align: center;
 	text-decoration: none;
+	box-shadow: 3px 2px 1px #DFD32B;
 	display: inline-block;
 	font-size: 13px;
 }
 
 #signIn2{
-	background-color:#3b5998;
+	background-color:#314882;
 	color: white;
 	font-weight: bold;
 	border: none;
