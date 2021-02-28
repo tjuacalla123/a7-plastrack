@@ -4,7 +4,7 @@
 		<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 		<link href = "css/bootstrap.min.css" rel = "stylesheet">
 		<link href = "css/bootstrap-theme.min.css" rel = "stylesheet">
-		<link href = "css/login.css" rel = "stylesheet">
+		<link href = "css/signup.css" rel = "stylesheet">
 
 		<!-- The core Firebase JS SDK is always required and must be listed first -->
 		<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
@@ -19,17 +19,18 @@
 
 		<body>
 
-			<h1> Plastrack Login </h1>
+			<h1> Make A New Plastrack Account </h1>
 			<div id="formContainer">
 				<div id = "header"> </div>
 
 				<input type="email" placeholder="email" id="email" />
-				<input type="password" placeholder="password" id="password" />
-				<div id="buttons">
-				<button onclick="signIn()" id="signIn"> Sign In </button>
-				<!-- <button onclick="signOut()" id="signOut"> Sign Out </button> -->
+				<input type="password" placeholder="password (minimum of 6 characters)" id="password" />
+				<input type="password" placeholder="confirm password" id="password2" />
 				<p></p>
-				<p> No account? Sign up with Plastrack <a href="/signup">here!</a></p>
+				<div id="buttons">
+				<p></p>
+				<button onclick="signUp()" id="signUp"> Sign Up </button>
+				<!-- <button onclick="signOut()" id="signOut"> Sign Out </button> -->
 				</div>
 			</div>
 		</body>
