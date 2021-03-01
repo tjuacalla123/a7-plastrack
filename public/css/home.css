@@ -9,6 +9,7 @@
 	}
 
 .demo-stuff {
+	margin-top: 3%;
 	font-size: 18px;
 	height: 30px;
 	color: #fff;
@@ -18,18 +19,24 @@
 	background: #314882;
 }
 
+.row {
+	margin-bottom: 3px;
+}
  .container {
- 	margin-top: 16%;
+ 	margin-top: 5%;
+ 	margin-bottom: 5%;
  }
+
 .plastrack {
 	font-family: 'Reem Kufi', sans-serif;
+	height: 100px;
 	font-size: 75px;
 	color: #DFD32B;
 	letter-spacing: -2px;
 	margin: 100px auto;
 	padding: 10px;
 	text-align: center;
-	text-shadow: 2px 2px 1px red;
+	text-shadow: 3px 2px 1px red;
 }
 
 h2 {
@@ -106,7 +113,7 @@ h1 {
 }
 
 .jumbotron.log:hover h2 b{
-	text-shadow: 3px 5px 1px red;
+	text-shadow: 3px 5px 1px #15203B;
 	color: white;
 }
 
