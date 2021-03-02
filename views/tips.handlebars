@@ -10,7 +10,8 @@
 	<link href = "css/navbar.css" rel = "stylesheet">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Manjari:wght@100&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manjari&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
     <style>
     	h2{font-family: 'Reem Kufi', sans-serif;
     font-size: 40px;};
@@ -45,13 +46,13 @@
 	
 	<div class ="row">
 		<div class = "col-xs-10 col-xs-offset-1 title">
-				<h2 class = "plastrack" style="color:#396B43;text-shadow: 2px 1px 1px #d1d1d1;">{{moduleTitle}}</h2>
+				<h2 class = "plastrack" style="color:#DFD32B ;text-shadow: 2px 1px 1px #333;">{{moduleTitle}}</h2>
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col-xs-10 col-xs-offset-1 col1">
-			<div class="jumbotron tip-titles" id = title style="color:white;background-color:#314882; text-align:center;">
+			<div class="jumbotron tip-titles" id = title style="font-family: 'Lexend Deca', sans-serif; font-size: 20px; color:white;background-color:#314882; border: 2px solid #223971; box-shadow: 3px 2px 1px #15203B; text-shadow: 2px 1px 1px #15203B; text-align:center; border-radius: 0px;">
 				Why should we reduce our plastic waste?
 			</div>
 			<div class="well2 descriptions" >
@@ -67,7 +68,7 @@
 			{{#each tips}}
 			<div class="section">
 			<div class="jumbotron tip-titles" id = title>
-				{{title}} 
+				{{title}} &raquo;
 			</div>
 			<div class="well descriptions" id = desc>
 				{{desc}}
@@ -79,7 +80,7 @@
 				<h2 class = "plastrack" style="color:#314882;text-shadow: 2px 1px 1px #d1d1d1;">{{moduleTitle2}}</h2>
 		</div>
 	</div>
-			<div class="jumbotron tip-titles" id = title style="background-color:#396B43; color:white; text-align:center;">
+			<div class="jumbotron tip-titles" id = title style="font-family: 'Lexend Deca', sans-serif; background-color:#314882; color:white; text-align:center; border-radius: 0px; text-shadow: 2px 1px 1px #15203B; border: 2px solid #223971; box-shadow: 3px 2px 1px #15203B;">
 				{{plastrackTitle}}
 			</div>
 			<div class="well2 descriptions">
@@ -89,7 +90,7 @@
 		{{#each info}}
 		<div class="section">
 			<div class="jumbotron tip-titles" id = title>
-				{{title}}
+				{{title}} &raquo;
 			</div>
 			<div class="well descriptions" id = desc>
 				{{desc}}
