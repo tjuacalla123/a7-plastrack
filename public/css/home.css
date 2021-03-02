@@ -5,6 +5,7 @@
  background-color: #768CB6; #152F72 --> dark blue for log a plastic btn
    background-image: linear-gradient(179deg, #15203B, #2B3B63, #768CB6 35%);*/
     background-image: linear-gradient(179deg, #314882, #8C9EC0 20%, #768CB6, #cfcfcf 80%, #c0c0c0 85%, #D2CC76);
+     background-attachment: fixed;
      background-position: center;
 	}
 
