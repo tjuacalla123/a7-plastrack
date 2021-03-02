@@ -34,4 +34,6 @@ $(document).ready(function() {
   $(".medium").html(totalMedium);
   $(".smalls").html(totalSmall);
   $(".total-logged").html(totalCount);
+  
+  
 })

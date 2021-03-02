@@ -8,6 +8,10 @@ $(document).ready(function(){
   
   // submit and move move data to log done
   $(".recycling-bin").click(function() {
+    if ($(".divider").length == 0) {
+      alert("You haven't logged anything yet")
+      return;
+    }
     sessionStorage.removeItem("countItems");
     var logCount = [];
     $(".divider").each(function(){
@@ -17,7 +21,19 @@ $(document).ready(function(){
         logCount.push(plastic);
       }  
     });
-    sessionStorage.setItem("logged", JSON.stringify(logCount));
+    
+    if (localStorage.getItem("data") == null) {
+      var data = []
+      data.push(logCount);
+      localStorage.setItem("data", JSON.stringify(data));
+    }
+    else {
+      var dataExist = JSON.parse(localStorage.getItem("data"));
+      console.log(dataExist);
+      dataExist.push(logCount)
+      localStorage.setItem("data", JSON.stringify(dataExist));
+    }
+    
     window.location.replace("/logdone");
   })
   

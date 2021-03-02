@@ -2,28 +2,21 @@
 
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
-	initializePage();
+	// load circles 
+	data = JSON.parse(sessionStorage.getItem("logged"));
+	
+	
 })
 
 /*
- * Function that is called when the document is ready.
- */
-function initializePage() {
-	$("#today").click(function(e) {
-		alert("Sorry, this functionality has not been implemented yet.");
-	});
-
-	$("#week").click(function(e) {
-		alert("Sorry, this functionality has not been implemented yet.");
-	});
-
-		$("#month").click(function(e) {
-		alert("Sorry, this functionality has not been implemented yet.");
-	});
-
-			$("#year").click(function(e) {
-		alert("Sorry, this functionality has not been implemented yet.");
-	});
-	// Add any additional listeners here
-	// example: $("#div-id").click(functionToCall);
-}
+(function() {
+	var height = 500;
+	var width = 500;
+	var svg = d3.select(".graph-box")
+		.append("svg")
+		.attr("height", height);
+		.attr("width", width);
+		.append("g")
+		.attr("transform", "translate(0,0)")
+})
+*/
