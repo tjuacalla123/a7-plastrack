@@ -34,6 +34,16 @@ $(document).ready(function() {
   $(".medium").html(totalMedium);
   $(".smalls").html(totalSmall);
   $(".total-logged").html(totalCount);
+  sessionStorage.removeItem("logged");
   
+  
+  // calculates total size of localStorage, limit is 5mb.
+  var allStrings = '';
+  for(var key in window.localStorage){
+    if(window.localStorage.hasOwnProperty(key)){
+      allStrings += window.localStorage[key];
+    }
+  }
+  console.log(allStrings ? 3 + ((allStrings.length*16)/(8*1024)) + ' KB' : 'Empty (0 KB)');
   
 })

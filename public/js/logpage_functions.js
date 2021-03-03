@@ -12,29 +12,45 @@ $(document).ready(function(){
       alert("You haven't logged anything yet")
       return;
     }
-    sessionStorage.removeItem("countItems");
-    var logCount = [];
-    $(".divider").each(function(){
-      var plastic = $(this).data("plasticObject");
-      if (plastic != "undefined") {
-        plastic["date"] = moment().format('YYYY MM DD');
-        logCount.push(plastic);
-      }  
-    });
-    
-    if (localStorage.getItem("data") == null) {
-      var data = []
-      data.push(logCount);
-      localStorage.setItem("data", JSON.stringify(data));
+    var submit_log = confirm("Log your plastics?\nOK if you want to proceed\nCANCEL to continue logging");
+    console.log(submit_log == true);
+    if (submit_log) {
+      sessionStorage.removeItem("countItems");
+      var logCount = [];
+      $(".divider").each(function(){
+        var plastic = $(this).data("plasticObject");
+        if (plastic != "undefined") {
+          plastic["date"] = moment().format('YYYY MM DD');
+          logCount.push(plastic);
+        }  
+      });
+      
+      sessionStorage.setItem("logged", JSON.stringify(logCount));
+      
+      if (localStorage.getItem("data") == null) {
+        var data = {}
+        console.log(data[moment().format('YYYY MM DD')]);
+        if (data[moment().format('YYYY MM DD')] == undefined) {
+          data[moment().format('YYYY MM DD')] = [logCount];
+        }
+        else {
+          data[moment().format('YYYY MM DD')].push(logCount);
+        }
+        localStorage.setItem("data", JSON.stringify(data));
+      }
+      else {
+        var dataExist = JSON.parse(localStorage.getItem("data"));
+        if (dataExist[moment().format('YYYY MM DD')] == undefined) {
+          dataExist[moment().format('YYYY MM DD')] = [logCount];
+        }
+        else {
+          dataExist[moment().format('YYYY MM DD')].push(logCount);
+        }
+        localStorage.setItem("data", JSON.stringify(dataExist));
+      }
+      window.location.replace("/logdone");
     }
-    else {
-      var dataExist = JSON.parse(localStorage.getItem("data"));
-      console.log(dataExist);
-      dataExist.push(logCount)
-      localStorage.setItem("data", JSON.stringify(dataExist));
-    }
     
-    window.location.replace("/logdone");
   })
   
   // search function/filter
