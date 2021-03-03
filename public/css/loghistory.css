@@ -59,12 +59,12 @@
   width: 100%;
   height: 345px;
   background-color: grey;
-  display: flex; 
-  
 }
 
 svg {
   display: flex; 
   justify-content: center;
   text-align: center;
+  overflow-x: scroll;
+  overflow-y: scroll;
 }

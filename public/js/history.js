@@ -93,17 +93,19 @@ function bubbleChart(dataset, minDomain, maxDomain) {
 			.attr("height", height)
 			.attr("width", width)
 			.append("g")
-			.attr("transform", "translate(0,0)");
+			.attr("transform", "translate(0,0)")
+			.attr("height", height)
+			.attr("width", width);
 			
 	// decides positioning of circles	
 	var simulation = d3.forceSimulation()
-			.force("x", d3.forceX(345/2).strength(0.05))
-			.force("y", d3.forceY(345/2).strength(0.05))
+			.force("x", d3.forceX(345/2).strength(1))
+			.force("y", d3.forceY(345/2).strength(1))
 			.force("collide", d3.forceCollide(function(d) {
 				return radiusScale(d[0])
 			}))
 	
-	var radiusScale = d3.scaleSqrt().domain([minDomain, maxDomain]).range([20,50])
+	var radiusScale = d3.scaleSqrt().domain([minDomain, maxDomain]).range([30,50])
 	
 	var circles = svg.selectAll(".plastic")
 			.data(dataset)
