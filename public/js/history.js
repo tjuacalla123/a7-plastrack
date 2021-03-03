@@ -3,7 +3,10 @@
 $(document).ready(function() {
 	// get data from localStorage
 	var dataset = JSON.parse(localStorage.getItem("data"));
-	today(dataset);
+	if dataset != null {
+		today(dataset);
+	}
+	
 	
 })	
 
