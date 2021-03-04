@@ -4,32 +4,78 @@ $(document).ready(function() {
 	// get data from localStorage
 	var dataset = JSON.parse(localStorage.getItem("data"));
 	if (dataset != null) {
+		
+		// datasets
 		var statsToday = today(dataset);
 		var stats7days = lastXDays(dataset, 7);
 		var stats30days = lastXDays(dataset, 30);
 		
+		
+		// plastic day by day 
 		var last7line = parseProgress(stats7days[1]);
 		var last30line = parseProgress(stats30days[1]);
 		
-		var modified = [];
-		for (i in statsToday) {
-			var withName = statsToday[i];
-			withName.push(i);
-			modified.push(withName);
-		}
-		var counts = modified.map(function(value) { 
-			return value[0]; 
-		});
-		var maxCount = Math.max.apply(Math,counts);
-		var minCount = Math.min.apply(Math,counts);
-		bubbleChart(modified, minCount, maxCount);
+		
+		// plastic frequency
+		var todayplastic = parseDict(statsToday);
+		var plastic7 = parseDict(stats7days[0]);
+		var plastic30 = parseDict(stats30days[0]);
+		
+		$("#today").click(function() {
+			$("#linegraph").data("chart").destroy();$("#linegraph1").data("chart").destroy();
+			$("#linegraph").remove();$("#linegraph1").remove();
+			$(".graphs").append("<canvas id = linegraph></canvas>");$(".graphs").append("<canvas id = linegraph1></canvas>");
+			
+			lineChart(todayplastic, 'bar', "#linegraph");
+			lineChart(todayplastic, 'bar', "#linegraph1");
+		})
+		
+		$("#week").click(function() {
+			$("#linegraph").data("chart").destroy();$("#linegraph1").data("chart").destroy();
+			$("#linegraph").remove();$("#linegraph1").remove();
+			$(".graphs").append("<canvas id = linegraph></canvas>");$(".graphs").append("<canvas id = linegraph1></canvas>");
+			lineChart(plastic7, 'bar', "#linegraph");
+			lineChart(last7line, 'line', "#linegraph1");
+		})
+		
+		$("#month").click(function() {
+			$("#linegraph").data("chart").destroy();$("#linegraph1").data("chart").destroy();
+			$("#linegraph").remove();$("#linegraph1").remove();
+			$(".graphs").append("<canvas id = linegraph></canvas>");$(".graphs").append("<canvas id = linegraph1></canvas>");
+			
+			lineChart(plastic30, 'bar', "#linegraph");
+			lineChart(last30line, 'line', "#linegraph1");
+			
+		})
+		
+		lineChart(todayplastic, 'bar', "#linegraph");
+		lineChart(todayplastic, 'bar', "#linegraph1");
 	}
 	
-	$(".plastic").on("click", function(){
-		console.log($("svg").data());
-	})
-	lineChart(stats7days);
 })
+
+
+function lineChart(data, chartType, location) {
+	
+	var chart = $(location);
+	var barChart = new Chart(chart, {
+		type: chartType,
+		data: {
+			labels: data[0],
+			datasets: [{
+				label: 'Amount of plastics',
+				data: data[1]
+			}]
+		},
+		options: {
+			responsive: true,
+      maintainAspectRatio: false
+		},
+		
+	});
+	$(location).data("chart", barChart);
+}
+
 
 function today(dataset) {
 	// generate today's stats
@@ -39,7 +85,7 @@ function today(dataset) {
 		var allLogs = todays[log]; // very fast runtime
 		for (item in allLogs) {
 			var plastic = allLogs[item];
-			var keyName = plastic["name"] + " ("+ plastic["size"] +")";
+			var keyName = plastic["name"]; // + " ("+ plastic["size"] +")";
 			var val = statsStuff[keyName];
 			if (val == undefined) {
 				statsStuff[keyName] = [plastic["count"], plastic["size"]]
@@ -52,18 +98,16 @@ function today(dataset) {
 	return statsStuff;
 }
 
-function lastXDays(dataset, days) { // not done yet
+// totals for each plastic, totals for each date, totals for each size 
+function lastXDays(dataset, days) { 
 	var statsX = {};
 	var totals = {};
 	var sizetotals = [];
 	var allData = dataset;
-	var smallcount = 0;
-	var mediumcount = 0;
-	var largecount = 0;
+	var smallcount = 0;	var mediumcount = 0;	var largecount = 0;
 	for (date in allData) {
 		var todaydate = moment(date).format('MM/DD/YYYY');
 		var lastx = moment().subtract(days, 'days').format('MM/DD/YYYY')
-		//var bruh = lastx.day(-7);
 		if (moment(todaydate).isAfter(lastx)) {
 			var logDate = allData[date]
 			var datecount = 0;
@@ -71,7 +115,7 @@ function lastXDays(dataset, days) { // not done yet
 				var allLogs = logDate[log];
 				for (session in allLogs) {
 					var plastic = allLogs[session];
-					var keyName = plastic["name"] + " ("+ plastic["size"] +")";
+					var keyName = plastic["name"]; // + " ("+ plastic["size"] +")";
 					var val = statsX[keyName];
 					if (val == undefined) {
 						statsX[keyName] = [plastic["count"], plastic["size"]]
@@ -98,7 +142,26 @@ function lastXDays(dataset, days) { // not done yet
 	return [statsX, totals, sizetotals];
 }
 
+function parseDict(dict) {
+	var items = Object.keys(dict).map(function(key) {
+  	return [key, dict[key]];
+	});
 
+	items.sort(function(first, second) {
+  	return second[1][0] - first[1][0];
+	});
+	
+	var name = items.map(function(val) {
+  	return val[0];
+	});
+	var count = items.map(function(val) {
+  	return val[1][0];
+	});
+	var size = items.map(function(val) {
+  	return val[1][1];
+	});
+	return [name, count, size];
+}
 
 function parseProgress(data) {
 	var dateList = [];
@@ -107,36 +170,31 @@ function parseProgress(data) {
 		dateList.push(date);
 		amountList.push(data[date]);
 	}
-	return []
+	return [dateList, amountList];
 }
 
-function lineChart(data, chartType) {
-	var lineData = data[1];
-	var dateList = [];
-	var amountList = [];
-	for (date in lineData) {
-		dateList.push(date);
-		amountList.push(lineData[date]);
+
+
+
+
+//Will implement in the future, not for a7
+/*
+function parseBubble(data) {
+	var modified = [];
+	for (i in data) {
+		var withName = data[i];
+		withName.push(i);
+		modified.push(withName);
 	}
-	
-	var chart = $("#linegraph");
-	var barChart = new Chart(chart, {
-	
-		type: 'line',
-		data: {
-			labels: dateList,
-			datasets: [{
-				label: 'Amount of plastics',
-				data: amountList
-			}]
-		},
-		options: {
-			
-		},
-		
+	var counts = modified.map(function(value) { 
+		return value[0]; 
 	});
+	
+	var maxCount = Math.max.apply(Math,counts);
+	var minCount = Math.min.apply(Math,counts);
+	
+	return [modified, minCount, maxCount]; 
 }
-
 
 function bubbleChart(dataset, minDomain, maxDomain) {
 	var width = $(".graph-box").css("width");
@@ -182,3 +240,4 @@ function bubbleChart(dataset, minDomain, maxDomain) {
 			});
 	}
 }
+*/

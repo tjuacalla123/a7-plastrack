@@ -61,10 +61,19 @@
   background-color: grey;
 }
 
-svg {
-  display: flex; 
-  justify-content: center;
-  text-align: center;
-  overflow-x: scroll;
+.graphs {
+  height: 50vh;
   overflow-y: scroll;
+  width: 90%;
+  margin-bottom: 5vh;
+  scroll-snap-type: y mandatory;
+}
+
+.g-row {
+  display: flex;
+  justify-content: center;
+}
+
+#linegraph, #linegraph1 {
+  scroll-snap-align: start;
 }
