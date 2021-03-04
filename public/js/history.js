@@ -36,6 +36,12 @@ $(document).ready(function() {
 			$(".graphs").append("<canvas id = linegraph></canvas>");$(".graphs").append("<canvas id = linegraph1></canvas>");
 			lineChart(plastic7, 'bar', "#linegraph");
 			lineChart(last7line, 'line', "#linegraph1");
+			
+			var sizetotals = stats7days[2];
+			$("#small").html(sizetotals[0]);
+			$("#medium").html(sizetotals[1]);
+			$("#large").html(sizetotals[2]);
+			$("#total").html(sizetotals[3]);
 		})
 		
 		$("#month").click(function() {
@@ -46,10 +52,19 @@ $(document).ready(function() {
 			lineChart(plastic30, 'bar', "#linegraph");
 			lineChart(last30line, 'line', "#linegraph1");
 			
+			var sizetotals = stats30days[2];
+			$("#small").html(sizetotals[0]);
+			$("#medium").html(sizetotals[1]);
+			$("#large").html(sizetotals[2]);
+			$("#total").html(sizetotals[3]);
 		})
 		
 		lineChart(todayplastic, 'bar', "#linegraph");
 		lineChart(todayplastic, 'bar', "#linegraph1");
+		//$("#small").html(sizetotals[0]);
+		//$("#medium").html(sizetotals[1]);
+		//$("#large").html(sizetotals[2]);
+		//$("#total").html(sizetotals[3]);
 	}
 	
 })
@@ -80,7 +95,7 @@ function lineChart(data, chartType, location) {
 function today(dataset) {
 	// generate today's stats
 	var statsStuff = {};
-	var todays = dataset[moment().format('YYYY MM DD')];
+	var todays = dataset[moment(new Date()).format('YYYY MM DD')];
 	for (log in todays) {
 		var allLogs = todays[log]; // very fast runtime
 		for (item in allLogs) {
@@ -106,9 +121,9 @@ function lastXDays(dataset, days) {
 	var allData = dataset;
 	var smallcount = 0;	var mediumcount = 0;	var largecount = 0;
 	for (date in allData) {
-		var todaydate = moment(date).format('MM/DD/YYYY');
-		var lastx = moment().subtract(days, 'days').format('MM/DD/YYYY')
-		if (moment(todaydate).isAfter(lastx)) {
+		var todaydate = moment(new Date(date)).format('MM/DD/YYYY');
+		var lastx = moment(new Date()).subtract(days, 'days').format('MM/DD/YYYY')
+		if (moment(new Date(todaydate)).isAfter(lastx)) {
 			var logDate = allData[date]
 			var datecount = 0;
 			for (log in logDate) {
