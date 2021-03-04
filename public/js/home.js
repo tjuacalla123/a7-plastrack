@@ -19,12 +19,12 @@
 	auth.onAuthStateChanged(function(user){
 		
 		if(user){
-			var email = user.email;
+			var address = user.email;
 			//alert("Welcome user " + email);
 			//$( "div.demo-stuff" ).html(function() {
 		  	//return email;
 			//});
-			$( ".demo-stuff" ).append(email);
+			$( ".demo-stuff" ).append(address);
 		} else{
 		}
 		
