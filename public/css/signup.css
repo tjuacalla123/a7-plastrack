@@ -10,11 +10,11 @@ h1 {
 	font-size: 65px;
 	letter-spacing: -1px;
 	background-color: transparent;
-	color: #314882;
+	color: #D2CC76;
 	margin: 100px auto;
 	padding: 10px;
 	text-align: center;
-	text-shadow: 3px 2px 3px #768CB6;
+	text-shadow: 3px 2px 3px #de6903;
 	box-shadow: 0 12px 16px 0 #314882, 0 17px 30px 0 #768CB6;
 }
 
@@ -69,8 +69,8 @@ h1 {
 }
 
 #signUp{
-	background-color: #DFD32B;
-	box-shadow: 3px 2px 1px #768CB6;
+	background-color: #314882;
+	box-shadow: 3px 2px 5px #15203B;
 	color: white;
 	border: none;
 	font-weight: bold;

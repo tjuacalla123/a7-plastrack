@@ -31,22 +31,25 @@ function handleData()
 
 
 $('#button_submit').click(function() {
-    var check_box_values = $('#myForm [type="checkbox"]:checked').map(function () {
+    var check_box_values = parseInt($('#myForm [type="checkbox"]:checked').map(function () {
         return this.value;
-    }).get();
+    }).get());
     if (check_box_values > 0){
     console.log(check_box_values);
     $('#share-modal-close').click();
-    $('#testing').click();} 
-    else {
+    $('#testing').click(); 
+    } else {
+      console.log(check_box_values);
     	shakeElement(this);
     	shakeElement2(this);
     }
+    var check = Number.isInteger(check_box_values);
+    console.log(check); 
 });
 
 function confirmSendFunction(){
     $( "#confirm-send-message" ).html("Sent!");
-    $( "#close-send" ).html("Close");
+    $( "#close-send" ).html('Close');
     $( "#confirm-send" ).hide();
     $('#exampleModalLong').on('hidden.bs.modal', function (e) {
 	    location.reload();
