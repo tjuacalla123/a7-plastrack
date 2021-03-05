@@ -76,3 +76,27 @@
 .p-text {
   word-wrap: break-word;
 }
+
+.option {
+  margin: 2vh 0px 0px 0px;
+  height: 8vh;
+  padding: 0;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+}
+
+.done {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  margin: 1vh 0px 1vh 0px;
+  font-size: 35px;
+}
+
+#share {
+  margin-bottom: 2vh;
+}
