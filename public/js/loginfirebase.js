@@ -55,7 +55,7 @@
 		//document.querySelector().style.display="block";
 		console.log(user);
 		var user = result.user;
-		console.log(user.email);
+		console.log(user.displayName);
 	}).catch(function(error){
 		alert(error.message);
 });
@@ -82,9 +82,7 @@
 		
 	});
 /*
-
 const signInWithFacebookBtn = document.getElementById('signInWithFacebook');
-
 function signInWithFacebook () {
   var facebookProvider = new firebase.auth.FacebookAuthProvider();
   //Or auth.signInWithRedirect(facebookProvider)
@@ -96,8 +94,5 @@ function signInWithFacebook () {
 		alert(error.message);
   });
 }
-
 signInWithFacebookBtn.addEventListener('click', signInWithFacebook);
 */
-	
-

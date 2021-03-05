@@ -1,5 +1,5 @@
 {
-	"pageTitle": "Settings",
+	"pageTitle": "Plastrack User Settings",
 	"navLink" : [
 		{
 		"title": "Homepage",
@@ -38,13 +38,10 @@
 	],
 	"dropdown": [
 		{
-			"title": "Setting 1",
+			"title": "Display Name:",
 			"option": [
 				{
-					"optionName": "Setting 1 option 1"
-				},
-				{
-					"optionName": "Setting 1 option 2"
+					"optionName": "Change"
 				}
 			]	
 		},
@@ -53,20 +50,17 @@
 			"option": [
 				{
 					"optionName": "Setting 2 option 1"
-				},
-				{
-					"optionName": "Setting 2 option 2"
 				}
 			]		
 		}
 	],
 	"slider": [
 		{
-			"title": "Sound"
+			"title": "Log confetti"
 		},
 		{
 			"title": "Dark mode"
 		}
 	],
-	"shareBtnTitle": "Sync your Facebook account"
+	"saveBtnTitle": "Save"
 }
