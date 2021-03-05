@@ -20,31 +20,30 @@ $(document).ready(function(){
       $(".divider").each(function(){
         var plastic = $(this).data("plasticObject");
         if (plastic != "undefined") {
-          plastic["date"] = moment().format('YYYY MM DD');
           logCount.push(plastic);
         }  
       });
       
       sessionStorage.setItem("logged", JSON.stringify(logCount));
       
+      var date = moment().format("DD/MM/YYYY");
       if (localStorage.getItem("data") == null) {
         var data = {}
-        console.log(data[moment().format('YYYY MM DD')]);
-        if (data[moment().format('YYYY MM DD')] == undefined) {
-          data[moment().format('YYYY MM DD')] = [logCount];
+        if (data[moment(date, "DD/MM/YYYY")] == undefined) {
+          data[moment(date, "DD/MM/YYYY")] = [logCount];
         }
         else {
-          data[moment().format('YYYY MM DD')].push(logCount);
+          data[moment(date, "DD/MM/YYYY")].push(logCount);
         }
         localStorage.setItem("data", JSON.stringify(data));
       }
-      else {
+      else {  
         var dataExist = JSON.parse(localStorage.getItem("data"));
-        if (dataExist[moment().format('YYYY MM DD')] == undefined) {
-          dataExist[moment().format('YYYY MM DD')] = [logCount];
+        if (dataExist[moment(date, "DD/MM/YYYY")] == undefined) {
+          dataExist[moment(date, "DD/MM/YYYY")] = [logCount];
         }
         else {
-          dataExist[moment().format('YYYY MM DD')].push(logCount);
+          dataExist[moment(date, "DD/MM/YYYY")].push(logCount);
         }
         localStorage.setItem("data", JSON.stringify(dataExist));
       }
