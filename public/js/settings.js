@@ -19,3 +19,29 @@ function initializePage() {
 	// Add any additional listeners here
 	// example: $("#div-id").click(functionToCall);
 }
+
+$(document).ready(function() {
+
+    var readURL = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.profile-pic').attr('src', e.target.result);
+            }
+    
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+		$('.new_Btn').bind("click" , function () {
+		        $('#html_btn').click();
+		});
+
+		$('#html_btn').change(function(){
+		    //trim removes whitespace
+		    if( $.trim($('#html_btn').val()) != "" ) $('.new_Btn').addClass('selected');
+		        else $('.new_Btn').removeClass('selected'); 
+		        readURL(this);
+		});
+});

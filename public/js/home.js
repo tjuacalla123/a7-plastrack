@@ -19,11 +19,16 @@
 	auth.onAuthStateChanged(function(user){
 		
 		if(user){
-			var address = user.email;
+			
+			/*
+			if (typeof user.displayName !== undefined) {
+   			var address = user.displayName;
+			} else {var address = user.email;}
 			//alert("Welcome user " + email);
 			//$( "div.demo-stuff" ).html(function() {
 		  	//return email;
-			//});
+			//});*/
+
 			$( ".demo-stuff" ).append(address);
 		} else{
 		}
