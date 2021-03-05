@@ -10,14 +10,13 @@ $(document).ready(function() {
 		var stats7days = lastXDays(dataset, 7);
 		var stats30days = lastXDays(dataset, 30);
 		
-		
 		// plastic day by day 
 		var last7line = parseProgress(stats7days[1]);
 		var last30line = parseProgress(stats30days[1]);
 		
 		
 		// plastic frequency
-		var todayplastic = parseDict(statsToday);
+		var todayplastic = parseDict(statsToday[0]);
 		var plastic7 = parseDict(stats7days[0]);
 		var plastic30 = parseDict(stats30days[0]);
 		
@@ -27,7 +26,7 @@ $(document).ready(function() {
 			$(".graphs").append("<canvas id = linegraph></canvas>");$(".graphs").append("<canvas id = linegraph1></canvas>");
 			
 			lineChart(todayplastic, 'bar', "#linegraph");
-			lineChart(todayplastic, 'bar', "#linegraph1");
+			lineChart([["small", "medium", "large"], statsToday[1]], 'pie', "#linegraph1");
 		})
 		
 		$("#week").click(function() {
@@ -41,7 +40,7 @@ $(document).ready(function() {
 			$("#small").html(sizetotals[0]);
 			$("#medium").html(sizetotals[1]);
 			$("#large").html(sizetotals[2]);
-			$("#total").html(sizetotals[3]);
+			$("#all").html(sizetotals[3]);
 		})
 		
 		$("#month").click(function() {
@@ -56,15 +55,15 @@ $(document).ready(function() {
 			$("#small").html(sizetotals[0]);
 			$("#medium").html(sizetotals[1]);
 			$("#large").html(sizetotals[2]);
-			$("#total").html(sizetotals[3]);
+			$("#all").html(sizetotals[3]);
 		})
 		
 		lineChart(todayplastic, 'bar', "#linegraph");
-		lineChart(todayplastic, 'bar', "#linegraph1");
-		//$("#small").html(sizetotals[0]);
-		//$("#medium").html(sizetotals[1]);
-		//$("#large").html(sizetotals[2]);
-		//$("#total").html(sizetotals[3]);
+		lineChart([["small", "medium", "large"], statsToday[1]], 'pie', "#linegraph1");
+		$("#small").html(statsToday[1][0]);
+		$("#medium").html(statsToday[1][1]);
+		$("#large").html(statsToday[1][2]);
+		$("#all").html(statsToday[2]);
 	}
 	
 })
@@ -95,7 +94,9 @@ function lineChart(data, chartType, location) {
 function today(dataset) {
 	// generate today's stats
 	var statsStuff = {};
-	var todays = dataset[moment(new Date()).format('YYYY MM DD')];
+	var dateToday = moment().format("DD/MM/YYYY");
+	var todays = dataset[moment(dateToday, "DD/MM/YYYY")];
+	var smallcount = 0;	var mediumcount = 0;	var largecount = 0;
 	for (log in todays) {
 		var allLogs = todays[log]; // very fast runtime
 		for (item in allLogs) {
@@ -108,9 +109,14 @@ function today(dataset) {
 			else {
 				statsStuff[keyName][0] += plastic["count"];
 			}
+			if (plastic["size"] == "small") {smallcount += plastic["count"];}
+			else if (plastic["size"] == "medium") {mediumcount += plastic["count"];}
+			else {largecount += plastic["count"];}
 		}
 	}
-	return statsStuff;
+	var totalSize = smallcount + mediumcount + largecount;
+	var sizetotals = [smallcount, mediumcount, largecount];
+	return [statsStuff, sizetotals, totalSize];
 }
 
 // totals for each plastic, totals for each date, totals for each size 
@@ -121,16 +127,17 @@ function lastXDays(dataset, days) {
 	var allData = dataset;
 	var smallcount = 0;	var mediumcount = 0;	var largecount = 0;
 	for (date in allData) {
-		var todaydate = moment(new Date(date)).format('MM/DD/YYYY');
-		var lastx = moment(new Date()).subtract(days, 'days').format('MM/DD/YYYY')
-		if (moment(new Date(todaydate)).isAfter(lastx)) {
+		
+		var dateToday = moment().format("DD/MM/YYYY");
+		var lastx = moment(dateToday, "DD/MM/YYYY").subtract(days, 'days');
+		if (lastx.isBefore(date)) {
 			var logDate = allData[date]
 			var datecount = 0;
 			for (log in logDate) {
 				var allLogs = logDate[log];
 				for (session in allLogs) {
 					var plastic = allLogs[session];
-					var keyName = plastic["name"]; // + " ("+ plastic["size"] +")";
+					var keyName = plastic["name"]; 
 					var val = statsX[keyName];
 					if (val == undefined) {
 						statsX[keyName] = [plastic["count"], plastic["size"]]
@@ -142,15 +149,12 @@ function lastXDays(dataset, days) {
 					if (plastic["size"] == "small") {smallcount += plastic["count"];}
 					else if (plastic["size"] == "medium") {mediumcount += plastic["count"];}
 					else {largecount += plastic["count"];}
-					
 					datecount += plastic["count"];
 				}
 			}
-			totals[todaydate] = datecount;
+			totals[date] = datecount;
 		}
-		else {
-			continue;
-		}
+		else {continue;}
 	}
 	var totalplastics = smallcount + mediumcount + largecount;
 	var sizetotals = [smallcount, mediumcount, largecount, totalplastics];
@@ -158,23 +162,11 @@ function lastXDays(dataset, days) {
 }
 
 function parseDict(dict) {
-	var items = Object.keys(dict).map(function(key) {
-  	return [key, dict[key]];
-	});
-
-	items.sort(function(first, second) {
-  	return second[1][0] - first[1][0];
-	});
-	
-	var name = items.map(function(val) {
-  	return val[0];
-	});
-	var count = items.map(function(val) {
-  	return val[1][0];
-	});
-	var size = items.map(function(val) {
-  	return val[1][1];
-	});
+	var items = Object.keys(dict).map(function(key) {return [key, dict[key]];});
+	items.sort(function(first, second) {return second[1][0] - first[1][0];});
+	var name = items.map(function(val) {return val[0];});
+	var count = items.map(function(val) {return val[1][0];});
+	var size = items.map(function(val) {return val[1][1];});
 	return [name, count, size];
 }
 
@@ -182,77 +174,8 @@ function parseProgress(data) {
 	var dateList = [];
 	var amountList = [];
 	for (date in data) {
-		dateList.push(date);
+		dateList.push(moment(date).format("MM/DD/YYYY"));
 		amountList.push(data[date]);
 	}
 	return [dateList, amountList];
 }
-
-
-
-
-
-//Will implement in the future, not for a7
-/*
-function parseBubble(data) {
-	var modified = [];
-	for (i in data) {
-		var withName = data[i];
-		withName.push(i);
-		modified.push(withName);
-	}
-	var counts = modified.map(function(value) { 
-		return value[0]; 
-	});
-	
-	var maxCount = Math.max.apply(Math,counts);
-	var minCount = Math.min.apply(Math,counts);
-	
-	return [modified, minCount, maxCount]; 
-}
-
-function bubbleChart(dataset, minDomain, maxDomain) {
-	var width = $(".graph-box").css("width");
-	var height = $(".graph-box").css("height");
-	var svg = d3.select(".graph-box")
-			.append("svg")
-			.attr("height", height)
-			.attr("width", width)
-			.append("g")
-			.attr("transform", "translate(0,0)");
-			
-	// decides positioning of circles	
-	var simulation = d3.forceSimulation()
-			.force("x", d3.forceX(345/2).strength(1))
-			.force("y", d3.forceY(345/2).strength(1))
-			.force("collide", d3.forceCollide(function(d) {
-				return radiusScale(d[0]) + 1 
-			}))
-	
-	var radiusScale = d3.scaleSqrt().domain([minDomain, maxDomain]).range([20,50])
-	
-	var circles = svg.selectAll(".plastic")
-			.data(dataset)
-			.enter()
-			.append("circle")
-			.attr("class","plastic")
-			.attr("r", function(d) {
-				return radiusScale(d[0])
-			})
-			.attr("fill", "lightblue")
-			
-			
-	simulation.nodes(dataset)
-			.on('tick', ticked)
-			
-	function ticked() {
-		circles
-			.attr("cx", function(d) {
-				return d.x;
-			})
-			.attr("cy", function(d) {
-				return d.y;
-			});
-	}
-}
-*/
