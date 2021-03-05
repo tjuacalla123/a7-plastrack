@@ -45,6 +45,12 @@ $('#button_submit').click(function() {
     }
     var check = Number.isInteger(check_box_values);
     console.log(check); 
+    var names = $('#myForm [type="checkbox"]:checked').map(function(){ return this.name; });
+    if (parseInt(names.length) > 1) {
+     $( "#confirm-send-message" ).append(names.get().join(' and ') + ' ?');
+    } else {
+      $( "#confirm-send-message" ).append(names.get() + ' ?');
+    }
 });
 
 function confirmSendFunction(){
@@ -78,3 +84,10 @@ function shakeElement2() {
       }, 40);  
    }
 }
+
+function viewReportFunction(clicked_id){
+  var btnName = (clicked_id).getAttribute("name");
+    $( "#exampleModalLongTitle2" ).html('Plastic Log History: ' + btnName);
+  $('#testing2').click(); 
+};   
+

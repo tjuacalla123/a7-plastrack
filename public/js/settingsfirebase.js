@@ -21,12 +21,13 @@
 		
 		if(user){
 			var email = user.email;
-			$( ".demo-stuff" ).append(email);
-			 document.getElementById('username').innerHTML = email;
-			 if (typeof user.displayName !== 'undefined') {
-   				var name = user.displayName;
-			} else {var name = "Fake Name";}
-			$('.displayName').append(name);
+			//$( ".demo-stuff" ).append(email);
+			 //document.getElementById('username').innerHTML = email;
+			 $( "#username" ).append(email);
+			 //if (typeof user.displayName !== 'undefined') {
+   				//var name = user.displayName;
+			//} else {var name = "Fake Name";}
+			//$('.displayName').append(name);
 		} else{
 			console.log("logged out");
 			 window.location.href = "/";
@@ -58,8 +59,7 @@
 	
 	function signOut(){
 		auth.signOut();
-		alert("Signed Out");
-		
+		 window.location.href = "/";
 	}
 
 
