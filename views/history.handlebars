@@ -34,13 +34,20 @@
 	</div>
 	
 <div class="container">
+	<div class ="row">
+		<div class = "col-xs-10 col-xs-offset-1 title">
+				<h1 class = "plastrack" ><i>Your Log History</i></h1>
+		</div>
+	</div>
+	
+	
+	
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="all-buttons">
-  			<button class="stats-button" id=today><p>Today</p></button>
-  			<button class="stats-button" id=week> <p>Weekly</p></button>
-  			<button class="stats-button"id=month><p>Monthly</p></button>
-  			<button class="stats-button"id=year><p>Yearly</p></button>
+  			<button class="stats-button" id=today>Today</button>
+  			<button class="stats-button" id=week>Last 7 Days</button>
+  			<button class="stats-button"id=month>Last 30 Days</button>
 			</div> 
 		</div>
 	</div>
@@ -52,8 +59,8 @@
 	</div>
 	
 	<div class="row">
-		<div class="col-xs-6 col-xs-offset-3 num-stats" >
-			<div class="well plastic-num" id = all>
+		<div class="col-xs-12 num-stats" >
+			<div class="plastic-num" id = all>
 				
 			</div>
 		</div>
@@ -61,55 +68,57 @@
 	
 	<div class="row">
 		<div class="col-xs-6 col-xs-offset-3 num-stats" id = total-desc>
-			<div class="well plastic-num1">
+			<div class="plastic-num1">
 				Total Plastics
 			</div>
 		</div>
 	</div>
 	
 	<div class="row general-stats">
-		<div class="col-xs-3 num-stats">
-			<div class="well plastic-num" id = small>
-			
+		<div class="col-xs-4">
+			<div class="plastic-num" id = small>
 			</div>
 		</div>
-		<div class="col-xs-3 num-stats">
-			<div class="well plastic-num" id = medium>
-				
+		<div class="col-xs-4">
+			<div class="plastic-num" id = medium>
 			</div>
 		</div>
-		<div class="col-xs-3 num-stats">
-			<div class="well plastic-num"id = large>
-				
+		<div class="col-xs-4">
+			<div class="plastic-num"id = large>
 			</div>
 		</div>
 	</div>
 	
 	<div class="row general-stats">
-		<div class="col-xs-3 num-stats">
-			<div class="well plastic-num1" id = total>
+		<div class="col-xs-4 num-stats">
+			<div class="plastic-num1">
 				small
 			</div>
 		</div>
-		<div class="col-xs-3 num-stats" id = small>
-			<div class="well plastic-num1">
+		<div class="col-xs-4 num-stats" >
+			<div class="plastic-num1">
 				medium
 			</div>
 		</div>
-		<div class="col-xs-3 num-stats" id = medium>
-			<div class="well plastic-num1">
+		<div class="col-xs-4 num-stats">
+			<div class="plastic-num1">
 				large
 			</div>
 		</div>
 	</div>
-	
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="tip">
+				Swipe sideways to see more graphs
+			</div>
+			
+		</div>
+	</div>
 	<div class="row g-row">
 		<div class="graphs">
 			<canvas id = linegraph>
-				
 			</canvas>
 			<canvas id = linegraph1>
-				
 			</canvas>
 		</div>
 	</div>

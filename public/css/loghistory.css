@@ -1,9 +1,31 @@
+#today, #week, #month {
+  font-size: 15px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#all {
+  font-size: 50px;
+  height: 7vh;
+}
+#small, #medium, #large {
+  font-size: 20px;
+}
+#all, #small, #medium, #large, .plastic-num1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.num-stats {
+  margin-bottom: 3vh;
+}
+
 .all-buttons, .stats-button {
   color: black;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
   cursor: pointer;
   float: left;
 }
@@ -11,18 +33,20 @@
   margin-bottom: 0px;
 }
 .all-buttons {
-  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   width: 100%;
 }
 .stats-button {
   background-color: gray; 
-  width: 25%;
+  width: 33%;
   height: 50px;
 }
 #today {
   border-radius: 20px 0px 0px 20px;
 }
-#year {
+#month {
   border-radius: 0px 20px 20px 0px;
 }
 #total-desc {
@@ -30,15 +54,14 @@
 }
 
 .plastic-num, .plastic-num1 {
-
   margin-bottom: 0px;
   padding: 0;
 }
 .plastic-num {
-  height: 50px;
+  height: 5vh;
 }
 .plastic-num1 {
-  height: 25px;
+  height: 2vh;
 }
 .num-stats {
   padding-left: 0px;
@@ -69,7 +92,7 @@
   scroll-snap-type: x mandatory;
   display: flex; 
   flex-direction: row;
-  
+  border: 2px solid black;
 }
 
 .g-row {
@@ -79,4 +102,12 @@
 
 #linegraph, #linegraph1 {
   scroll-snap-align: start;
+}
+
+.tip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  height: 4vh;
 }

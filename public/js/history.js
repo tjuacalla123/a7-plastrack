@@ -78,12 +78,24 @@ function lineChart(data, chartType, location) {
 			labels: data[0],
 			datasets: [{
 				label: 'Amount of plastics',
-				data: data[1]
+				data: data[1],
+				backgroundColor: ['blue', 'green', 'red'],
+				borderWidth: 1,
+				hoverBorderColor: 'black'
 			}]
 		},
 		options: {
 			responsive: true,
-      maintainAspectRatio: false
+      maintainAspectRatio: false,
+			scales: {
+				yAxes: [{
+	        ticks: {
+	            min: 0,
+	            stepSize: 5
+	        }
+	    	}]
+			}
+			
 		},
 		
 	});
