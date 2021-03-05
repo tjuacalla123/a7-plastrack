@@ -6,10 +6,10 @@ var largePlastics = 0;
 $(document).ready(function(){
   
   // removes a log group, on() is for elements that are appended after page loads.
-  $(document).on("click", ".divider", function() {
-    var names = $(this).find(".p-text").attr('id');
-    var count = +$(this).find(".p-num").text();
-    $(this).remove();
+  $(document).on("click", ".cross", function() {
+    var names = $(this).parent().find(".p-text").attr('id');
+    var count = +$(this).parent().find(".p-num").text();
+    $(this).parent().remove();
     var allCounts = JSON.parse(sessionStorage.getItem("countItems"));
     totalPlastics -= allCounts[names];
     
@@ -61,9 +61,10 @@ $(document).ready(function(){
                 $("#loggedTemp").append("<div class='divider' id="+id+"></div>");
                 $("#"+id+".divider").append("<div class='p-text' id="+id+">"+name+"</div>");
                 $("#"+id+".divider").append("<div class='p-num' id="+id+">"+tempCount[id]+"</div>");
+                $("#"+id+".divider").append("<div class='cross' id="+id+">"+ "&#9747;" + "</div>");
+                
                 var plasticData = draggable.data("plasticObject");
                 plasticData["count"] = 1;
-
               }
               else {
                 $("#"+id+".p-num").html(tempCount[id]);
