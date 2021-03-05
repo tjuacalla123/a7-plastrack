@@ -8,6 +8,7 @@
 	<link href = "css/bootstrap-theme.min.css" rel = "stylesheet">
 	<link href = "css/share.css" rel = "stylesheet">
 	<link href = "css/navbar.css" rel = "stylesheet">
+	<link href = "css/loghistory.css" rel = "stylesheet">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap" rel="stylesheet">
@@ -78,13 +79,13 @@
 				<div class="widget">
 					<div class="widget-simple">
 						<a href="#">
-							<img src="assets/userpic_placeholder.png" alt="avatar" class="widget-image img-circle pull-left animation-fadeIn">
+							<img src="assets/jane.png" alt="avatar" class="widget-image img-circle pull-left animation-fadeIn">
 						</a>
 						<h4 class="widget-content text-right">
 							<a href="#"><strong>Jane</strong></a><br>
 							<span class="btn-group">
 								<label class="checkbox">
-								<input type="checkbox" name="my_opt[]" value="1"></label>
+								<input type="checkbox" name="Jane" value="1"></label>
 							</span>
 						</h4>
 					</div>
@@ -94,13 +95,13 @@
 				<div class="widget">
 					<div class="widget-simple">
 						<a href="#">
-							<img src="assets/userpic_placeholder.png" alt="avatar" class="widget-image img-circle pull-left animation-fadeIn">
+							<img src="assets/anand.png" alt="avatar" class="widget-image img-circle pull-left animation-fadeIn">
 						</a>
 						<h4 class="widget-content text-right">
 							<a href="#"><strong>Anand</strong></a><br>
 							<span class="btn-group">
 								<label class="checkbox">
-								<input type="checkbox" name="my_opt[]" value="1"></label>
+								<input type="checkbox" name="Anand" value="1"></label>
 							</span>
 						</h4>
 					</div>
@@ -110,45 +111,13 @@
 				<div class="widget">
 					<div class="widget-simple">
 						<a href="#">
-							<img src="assets/userpic_placeholder.png" alt="avatar" class="widget-image img-circle pull-left animation-fadeIn">
+							<img src="assets/tim.png" alt="avatar" class="widget-image img-circle pull-left animation-fadeIn">
 						</a>
 						<h4 class="widget-content text-right">
 							<a href="#"><strong>Timothy</strong></a><br>
 							<span class="btn-group">
 								<label class="checkbox">
-								<input type="checkbox" name="my_opt[]" value="1"></label>
-							</span>
-						</h4>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-4">
-				<div class="widget">
-					<div class="widget-simple">
-						<a href="#">
-							<img src="assets/userpic_placeholder.png" alt="avatar" class="widget-image img-circle pull-left animation-fadeIn">
-						</a>
-						<h4 class="widget-content text-right">
-							<a href="#"><strong>Placeholder</strong></a><br>
-							<span class="btn-group">
-								<label class="checkbox">
-								<input type="checkbox" name="my_opt[]" value="1"></label>
-							</span>
-						</h4>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-4">
-				<div class="widget">
-					<div class="widget-simple">
-						<a href="#">
-							<img src="assets/userpic_placeholder.png" alt="avatar" class="widget-image img-circle pull-left animation-fadeIn">
-						</a>
-						<h4 class="widget-content text-right">
-							<a href="#"><strong>Placeholder</strong></a><br>
-							<span class="btn-group">
-								<label class="checkbox">
-								<input type="checkbox" name="my_opt[]" value="1"></label>
+								<input type="checkbox" name="Timothy" value="1"></label>
 							</span>
 						</h4>
 					</div>
@@ -200,7 +169,7 @@
         </button>
       </div>
       <div class="modal-body" style="text-align:center; height: 50px;" id="confirm-send-message">
-        Send to (checked list of friends)?
+        Send to 
       </div>
       <div class="modal-footer" id="send-footer">
         <button type="button" class="btn btn-secondary" id="close-send" data-dismiss="modal">Cancel</button>
@@ -239,12 +208,12 @@
 				<div class="widget">
 					<div class="widget-simple">
 						<a href="#">
-							<img src="assets/userpic_placeholder.png" alt="avatar" class="widget-image img-circle pull-left animation-fadeIn">
+							<img src="assets/jane.png" alt="avatar" class="widget-image img-circle pull-left animation-fadeIn">
 						</a>
 						<h4 class="widget-content text-right">
 							<a href="#"><strong>Jane</strong></a><br>
 							<span class="btn-group">
-								<a href="javascript:void(0)" class="btn btn-xs btn-default" data-toggle="tooltip" title="" data-original-title="view">View Report</a>
+								<button type="button" class="btn btn-xs btn-default" id="view-report" name="Jane" data-original-title="view" onclick="viewReportFunction(this);">View report</button>
 							</span>
 						</h4>
 					</div>
@@ -254,12 +223,12 @@
 				<div class="widget">
 					<div class="widget-simple">
 						<a href="#">
-							<img src="assets/userpic_placeholder.png" alt="avatar" class="widget-image img-circle pull-left animation-fadeIn">
+							<img src="assets/anand.png" alt="avatar" class="widget-image img-circle pull-left animation-fadeIn">
 						</a>
 						<h4 class="widget-content text-right">
 							<a href="#"><strong>Anand</strong></a><br>
 							<span class="btn-group">
-								<a href="javascript:void(0)" class="btn btn-xs btn-default" data-toggle="tooltip" title="" data-original-title="view">View Report</a>
+								<button type="button" class="btn btn-xs btn-default" id="view-report" name="Anand" data-original-title="view" onclick="viewReportFunction(this);">View report</button>
 							</span>
 						</h4>
 					</div>
@@ -269,12 +238,12 @@
 				<div class="widget">
 					<div class="widget-simple">
 						<a href="#">
-							<img src="assets/userpic_placeholder.png" alt="avatar" class="widget-image img-circle pull-left animation-fadeIn">
+							<img src="assets/tim.png" alt="avatar" class="widget-image img-circle pull-left animation-fadeIn">
 						</a>
 						<h4 class="widget-content text-right">
 							<a href="#"><strong>Timothy</strong></a><br>
 							<span class="btn-group">
-								<a href="javascript:void(0)" class="btn btn-xs btn-default" data-toggle="tooltip" title="" data-original-title="view">View Report</a>
+								<button type="button" class="btn btn-xs btn-default" id="view-report" name="Timothy" data-original-title="view" onclick="viewReportFunction(this);">View report</button>
 							</span>
 						</h4>
 					</div>
@@ -300,10 +269,125 @@
     </div>
   </div>
 </div>
+
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong2" id="testing2" style="display:none;">
+  Placeholder
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle2">Plastic Log History: </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="report-modal-body">
+        
+				<div class="container">
+
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="all-buttons">
+			  			<button class="stats-button" id=today>Today</button>
+			  			<button class="stats-button" id=week>Last 7 Days</button>
+			  			<button class="stats-button"id=month>Last 30 Days</button>
+						</div> 
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-xs-12" style="height: 20px;">
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-xs-12 num-stats" >
+						<div class="plastic-num" id = all>
+							
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-xs-6 col-xs-offset-3 num-stats" id = total-desc>
+						<div class="plastic-num1" style="margin-top:-20px;">
+							<h2>Total Plastics</h2>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row general-stats">
+					<div class="col-xs-4">
+						<div class="plastic-num" id = small>
+						</div>
+					</div>
+					<div class="col-xs-4">
+						<div class="plastic-num" id = medium>
+						</div>
+					</div>
+					<div class="col-xs-4">
+						<div class="plastic-num"id = large>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row general-stats">
+					<div class="col-xs-4 num-stats">
+						<div class="plastic-num1">
+							small
+						</div>
+					</div>
+					<div class="col-xs-4 num-stats" >
+						<div class="plastic-num1">
+							medium
+						</div>
+					</div>
+					<div class="col-xs-4 num-stats">
+						<div class="plastic-num1">
+							large
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="tip">
+							Swipe sideways to see more graphs
+						</div>
+						
+					</div>
+				</div>
+				<div class="row g-row">
+					<div class="graphs">
+						<canvas id = linegraph>
+						</canvas>
+						<canvas id = linegraph1>
+						</canvas>
+					</div>
+				</div>
+			</div>
+
+      </div>
+      <div class="modal-footer" id="send-footer">
+        <button type="button" class="btn btn-secondary" id="close-send" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/share.js"></script>
+	<script src="https://momentjs.com/downloads/moment.js"></script>
+	<script src="https://d3js.org/d3.v6.min.js"></script>
+	<script src="https://d3js.org/d3-dispatch.v2.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+	<script src="js/history.js"></script>
 </body>
 </html>

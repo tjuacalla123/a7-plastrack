@@ -6,7 +6,7 @@ body{
   font-family: 'Manjari', sans-serif;
   color: #15203B;
     font-size: 15px;
-     background-image: linear-gradient(179deg, #314882, #8C9EC0 20%, #768CB6, #cfcfcf 80%, #D2CC76);
+     background-image: linear-gradient(179deg, #314882, #8C9EC0 20%, #768CB6, #cfcfcf 80%, #D2CC76)  !important;
      background-position: center;
      height: 100vh;
      position: fixed;
@@ -291,6 +291,7 @@ input[type=checkbox] {
 
 .widget .widget-icon,
 .widget .widget-image {
+    background-color: #ddd;
     width: 64px;
     height: 64px
 }
