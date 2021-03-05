@@ -6,16 +6,24 @@ var largePlastics = 0;
 $(document).ready(function(){
   
   // removes a log group, on() is for elements that are appended after page loads.
-  $(document).on("click", ".divider", function() {
+
+   $(document).on("click", ".divider", function() {
     var names = $(this).find(".p-text").attr('id');
     var count = +$(this).find(".p-num").text();
-    $(this).remove();
-    var allCounts = JSON.parse(sessionStorage.getItem("countItems"));
-    totalPlastics -= allCounts[names];
+    var tempCount = JSON.parse(sessionStorage.getItem('countItems'))
+    if (count == 1) {
+      $(this).remove();
+    } else {
+      $("#"+names+".p-num").html(tempCount[names]-1);
+     var plasticData = $("#"+names+".divider").data("plasticObject");
+      plasticData["count"] -= 1; 
+      $("#"+names+".divider").data("plasticObject", plasticData); 
+    }
     
+    totalPlastics = totalPlastics-1;
     $(".totals").find("#total-plastic").html(totalPlastics + " total plastics logged");
-    delete allCounts[names];
-    sessionStorage.setItem("countItems", JSON.stringify(allCounts));
+    tempCount[names] = tempCount[names]-1;
+    sessionStorage.setItem("countItems", JSON.stringify(tempCount));
   });
   
   // drag and drop
